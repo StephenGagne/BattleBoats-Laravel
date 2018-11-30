@@ -1,0 +1,138 @@
+html {
+  box-sizing: border-box;
+}
+
+*,
+*:before,
+*:after {
+  box-sizing: inherit;
+}
+
+.game {
+  display: flex;
+  justify-content: center;
+  padding: 0 2%;
+}
+
+.game>* {
+  margin: 1%;
+}
+
+.gameboard {
+  border: 0.25vw solid black;
+  display: grid;
+  grid-template-columns: repeat(10, 1fr);
+  grid-gap: 0;
+  cursor: pointer;
+}
+
+/* .row {
+  display: flex;
+  flex-direction: row;
+} */
+
+.col {
+  height: 4vw;
+  width: 4vw;
+  border: 0.1vw solid black;
+  transition: 0.3s;
+}
+
+.sidebar {
+  flex-basis: 30%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.boats {
+  flex-basis: 75%;
+  border: 0.25vw solid black;
+  padding: 2%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  cursor: pointer;
+}
+
+.boat {
+  opacity: 0.8;
+  height: 4vw;
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+
+.boat-5 {
+  width: 25vw;
+  background-color: red;
+  background-image: url("../img/SVG/boat-5.svg");
+  background-size: 25vw 4vw;
+}
+
+.ship-5 {
+  background-color: red;
+}
+
+.boat-4 {
+  width: 20vw;
+  background-color: orange;
+  background-image: url("../img/SVG/boat-4.svg");
+  background-size: 20vw 4vw;
+}
+
+.ship-4 {
+  background-color: orange;
+}
+
+.boat-3 {
+  width: 15vw;
+  background-color: yellow;
+  background-image: url("../img/SVG/boat-3-2.svg");
+  background-size: 15vw 4vw;
+}
+
+.ship-3 {
+  background-color: yellow;
+}
+
+.boat-2 {
+  width: 15vw;
+  background-color: green;
+  background-image: url("../img/SVG/boat-3-1.svg");
+  background-size: 15vw 4vw;
+}
+
+.ship-2 {
+  background-color: green;
+}
+
+.boat-1 {
+  width: 10vw;
+  background-color: blue;
+  background-image: url("../img/SVG/boat-2.svg");
+  background-size: 10vw 4vw;
+}
+
+.ship-1 {
+  background-color: blue;
+}
+
+[data-shipID='boat-1'] {
+  background-color: coral;
+}
+
+.timer {
+  flex-basis: 20%;
+  border: 0.25vw solid black;
+  display: flex;
+  flex-direction: column;
+}
+
+.active {
+  opacity: 1;
+  border: none;
+}
+
+.covered {
+  background-color: teal;
+}
