@@ -7,27 +7,32 @@ let boatLength = 0
 let boatID = null
 let boatColor = null
 let orientation = 'horizontal'
+let gameRunning = false
 
 $boatContainer.addEventListener('click', function (e) {
-    if (e.target.classList.contains('boat')) {
-        const thisBoat = e.target.closest('.boat')
-        boatColor = window.getComputedStyle(thisBoat).backgroundColor
-        for (const col of $cols) {
-            if (col.style.backgroundColor === boatColor) {
-                col.style.backgroundColor = "#fff"
-                col.classList.remove('ship')
-                col.classList.remove('locked')
+    if (gameRunning) {
+
+    } else {
+        if (e.target.classList.contains('boat')) {
+            const thisBoat = e.target.closest('.boat')
+            boatColor = window.getComputedStyle(thisBoat).backgroundColor
+            for (const col of $cols) {
+                if (col.style.backgroundColor === boatColor) {
+                    col.style.backgroundColor = "#fff"
+                    col.classList.remove('ship')
+                    col.classList.remove('locked')
+                }
             }
-        }
-        for (const boat of boats) {
-            boat.classList.remove('active')
-        }
-        e.target.classList.add('active')
-        boatLength = thisBoat.dataset.length
-        boatID = `ship-${thisBoat.dataset.shipid}`
-        for (const col of $cols) {
-            if (col.dataset.shipid === boatID) {
-                delete(col.dataset.shipid)
+            for (const boat of boats) {
+                boat.classList.remove('active')
+            }
+            e.target.classList.add('active')
+            boatLength = thisBoat.dataset.length
+            boatID = `ship-${thisBoat.dataset.shipid}`
+            for (const col of $cols) {
+                if (col.dataset.shipid === boatID) {
+                    delete(col.dataset.shipid)
+                }
             }
         }
     }
@@ -76,17 +81,23 @@ $board.addEventListener('mouseover', function (cell) {
 })
 
 $board.addEventListener('click', function (e) {
-    for (const col of $cols) {
-        if (col.classList.contains('ship')) {
-            if (!col.classList.contains('locked')) {
-                col.dataset.shipid = boatID
-            }
-            col.classList.add('locked')
+    if (gameRunning) {
+        if (e.target.classList.contains('col')) {
+            e.target.classList.remove('covered')
         }
+    } else {
+        for (const col of $cols) {
+            if (col.classList.contains('ship')) {
+                if (!col.classList.contains('locked')) {
+                    col.dataset.shipid = boatID
+                }
+                col.classList.add('locked')
+            }
 
+        }
+        boatColor = null
+        boatLength = 0
     }
-    boatColor = null
-    boatLength = 0
 })
 
 window.addEventListener('keypress', function (e) {
@@ -128,4 +139,5 @@ function buildGrid() {
     for (const col of $board.getElementsByClassName('col')) {
         col.classList.add('covered')
     }
+    gameRunning = true
 }
