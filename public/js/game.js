@@ -120,6 +120,9 @@ function exportGame() {
     return (gridJSON)
 }
 
+$export = document.getElementById('export')
+$export.addEventListener('click', exportGame)
+
 function buildGrid() {
     const placements = localStorage.grid
     const gridData = Array.from(JSON.parse(placements))
