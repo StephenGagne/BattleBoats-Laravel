@@ -9,6 +9,32 @@ let boatColor = null
 let orientation = 'horizontal'
 let gameRunning = false
 
+// gather ship columns
+const ships = {
+    ship1: document.getElementsByClassName('ship-1'),
+    ship2: document.getElementsByClassName('ship-2'),
+    ship3: document.getElementsByClassName('ship-3'),
+    ship4: document.getElementsByClassName('ship-4'),
+    ship5: document.getElementsByClassName('ship-5')
+}
+
+function sinkCheck() {
+    let hits = 0
+    for (const ship in ships) {
+        for (const cell of ships[ship]) {
+            if (cell.classList.contains('hit')) {
+                hits++
+                if (hits === ships[ship].length) {
+                    for (const all of ships[ship]) {
+                        all.classList.add('sunk')
+                    }
+                }
+            }
+        }
+        hits = 0
+    }
+}
+
 $boatContainer.addEventListener('click', function (e) {
     if (gameRunning) {
 
@@ -84,6 +110,10 @@ $board.addEventListener('click', function (e) {
     if (gameRunning) {
         if (e.target.classList.contains('col')) {
             e.target.classList.remove('covered')
+            if (e.target.classList.contains('ship')) {
+                e.target.classList.add('hit')
+                sinkCheck()
+            }
         }
     } else {
         for (const col of $cols) {
@@ -93,7 +123,6 @@ $board.addEventListener('click', function (e) {
                 }
                 col.classList.add('locked')
             }
-
         }
         boatColor = null
         boatLength = 0
@@ -120,8 +149,10 @@ function exportGame() {
     return (gridJSON)
 }
 
-$export = document.getElementById('export')
-$export.addEventListener('click', exportGame)
+if (document.getElementById('export')) {
+    $export = document.getElementById('export')
+    $export.addEventListener('click', exportGame)
+}
 
 function buildGrid() {
     const placements = localStorage.grid
@@ -135,6 +166,11 @@ function buildGrid() {
             const col = document.createElement('div')
             col.classList.add('col')
             col.classList.add(data)
+            if (col.classList.contains('null')) {
+                col.classList.remove('null')
+            } else {
+                col.classList.add('ship')
+            }
             row.appendChild(col)
         }
         $board.appendChild(row)
