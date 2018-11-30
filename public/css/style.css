@@ -117,9 +117,6 @@ html {
     background-color: blue;
 }
 
-[data-shipID='boat-1'] {
-    background-color: coral;
-}
 
 .timer {
     flex-basis: 20%;
@@ -154,3 +151,10 @@ html {
     text-align: center;
     width: 60%;
 }
+
+.sunk {
+    filter: brightness(0.6);
+    filter: saturate(0.4);
+    transition: 0.4s;
+}
+
