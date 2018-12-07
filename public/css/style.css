@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css?family=Unlock');
+@import url('https://fonts.googleapis.com/css?family=Bungee+Inline');
 
 html {
     box-sizing: border-box;
@@ -11,13 +11,14 @@ html {
 }
 
 body {
-    background: url(./images/map.jpg);
+    background: url(../../images/map.jpg);
 }
 
-
-.h1 {
-    font-family: 'Unlock', cursive;
+h1 {
+    font-family: 'Bungee Inline', cursive;
     text-align: center;
+    font-size: 2rem;
+    letter-spacing: 5px;
 }
 
 .game {
@@ -35,8 +36,12 @@ body {
     display: grid;
     grid-template-columns: repeat(10, 1fr);
     grid-gap: 0;
-    cursor: pointer;
+    cursor: crosshair;
     background: #e4f1fe;
+    background-color: #e4f1fe;
+    background-image: url("https://www.transparenttextures.com/patterns/ice-age.png");
+
+    
 }
 
 /* .row {
@@ -56,7 +61,6 @@ body {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    background: #fff9de;
 }
 
 .boats {
@@ -67,6 +71,10 @@ body {
     flex-direction: column;
     justify-content: space-around;
     cursor: pointer;
+    background-color: #f2f1ef;
+    background-image: url("https://www.transparenttextures.com/patterns/black-paper.png");
+
+
 }
 
 .boat {
@@ -137,6 +145,9 @@ body {
     border: 0.25vw solid black;
     display: flex;
     flex-direction: column;
+    background-color: #e6e0d1;
+    background-image: url("https://www.transparenttextures.com/patterns/black-paper.png");
+    
 }
 
 .active {
