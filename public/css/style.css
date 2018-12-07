@@ -24,6 +24,7 @@ html {
     grid-template-columns: repeat(10, 1fr);
     grid-gap: 0;
     cursor: pointer;
+    background: #e4f1fe;
 }
 
 /* .row {
@@ -43,6 +44,7 @@ html {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+    background: #fff9de;
 }
 
 .boats {
