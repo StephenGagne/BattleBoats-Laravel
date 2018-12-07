@@ -44,7 +44,7 @@ $boatContainer.addEventListener('click', function (e) {
             boatColor = window.getComputedStyle(thisBoat).backgroundColor
             for (const col of $cols) {
                 if (col.style.backgroundColor === boatColor) {
-                    col.style.backgroundColor = "#fff"
+                    col.style.backgroundColor = "tan"
                     col.classList.remove('ship')
                     col.classList.remove('locked')
                 }
