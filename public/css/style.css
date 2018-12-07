@@ -10,7 +10,12 @@ html {
     box-sizing: inherit;
 }
 
-.header {
+body {
+    background: url(./images/map.jpg);
+}
+
+
+.h1 {
     font-family: 'Unlock', cursive;
     text-align: center;
 }
