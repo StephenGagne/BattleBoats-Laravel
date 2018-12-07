@@ -67,7 +67,7 @@ $boatContainer.addEventListener('click', function (e) {
 $board.addEventListener('mouseover', function (cell) {
     for (const col of $cols) {
         if (!col.classList.contains('locked')) {
-            col.style.backgroundColor = "#fff"
+            col.style.backgroundColor = "#e4f1fe"
             col.classList.remove('ship')
         }
     }
