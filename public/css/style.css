@@ -40,7 +40,7 @@ h1 {
     background: #e4f1fe;
     background-color: #e4f1fe;
     background-image: url("https://www.transparenttextures.com/patterns/ice-age.png");
-
+    box-shadow: 12px 12px 50px 1px rgba(108, 122, 137, 0.5);
     
 }
 
@@ -71,9 +71,9 @@ h1 {
     flex-direction: column;
     justify-content: space-around;
     cursor: pointer;
-    background-color: #f2f1ef;
+    background-color: #eeeeee;
     background-image: url("https://www.transparenttextures.com/patterns/black-paper.png");
-
+    box-shadow: 12px 12px 50px 1px rgba(108, 122, 137, 0.5);
 
 }
 
@@ -145,9 +145,9 @@ h1 {
     border: 0.25vw solid black;
     display: flex;
     flex-direction: column;
-    background-color: #e6e0d1;
+    background-color: #eeeeee;
     background-image: url("https://www.transparenttextures.com/patterns/black-paper.png");
-    
+    box-shadow: 12px 12px 50px 1px rgba(108, 122, 137, 0.5);
 }
 
 .active {
