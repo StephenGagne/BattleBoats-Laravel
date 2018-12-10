@@ -8,6 +8,7 @@ let boatID = null
 let boatColor = null
 let orientation = 'horizontal'
 let gameRunning = false
+let playerName = 'Stephen'
 
 // gather ship columns
 const ships = {
@@ -145,9 +146,10 @@ function exportGame() {
         grid.push(col.dataset.shipid)
     }
     const gridJSON = JSON.stringify(grid)
-    localStorage.grid = gridJSON
+    document.cookie = `${playerName}=${gridJSON};expires=3000;`
     return (gridJSON)
 }
+
 
 if (document.getElementById('export')) {
     $export = document.getElementById('export')
@@ -181,10 +183,11 @@ function buildGrid() {
     gameRunning = true
 }
 
-const timer = 30;
 
-const interval = setInterval(function() {
-    timer--;
-    $('.timer').text(timer);
-    if (timer === 0) clearInterval(interval);
-}, 1000);
+// const timer = 30;
+
+// const interval = setInterval(function () {
+//     timer--;
+//     $('.timer').text(timer);
+//     if (timer === 0) clearInterval(interval);
+// }, 1000);
